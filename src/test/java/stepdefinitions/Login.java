@@ -1,6 +1,7 @@
 package stepdefinitions;
 
 
+import org.junit.Assert;
 import org.openqa.selenium.By;
 
 import org.openqa.selenium.WebDriver;
@@ -9,7 +10,7 @@ import org.openqa.selenium.chrome.ChromeDriver;
 
 
 import cucumber.api.java.en.Given;
-
+import cucumber.api.java.en.Then;
 import cucumber.api.java.en.When;
 import pageObject.CheckoutPageObject;
 import pageObject.LoginPageObject;
@@ -41,6 +42,13 @@ public class Login
 		lp.userNameTxtBox.sendKeys("Linda97");
 		lp.passwordTxtBox.sendKeys("linda123"); 
 		lp.LoginBtn.click(); 
+		
+	}
+	
+	@Then("^User should be logged in and verified$")
+	public void user_should_be_logged_in_and_verified() 
+	{
+		Assert.assertEquals(driver.getTitle(), "Home");
 		
 	}
 
